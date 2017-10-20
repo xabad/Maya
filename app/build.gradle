@@ -5,14 +5,14 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.2"
+    compileSdkVersion library_version_compileSdkVersion as Integer
+    buildToolsVersion library_version_buildToolsVersion
     defaultConfig {
-        applicationId "cn.xabad.maya.sample"
-        minSdkVersion 19
-        targetSdkVersion 26
+        minSdkVersion library_version_minSdkVersion
+        targetSdkVersion library_version_targetSdkVersion
         versionCode 1
         versionName "1.0"
+        applicationId "cn.xabad.maya.sample"
     }
     buildTypes {
         release {
@@ -30,4 +30,5 @@ dependencies {
     implementation 'com.android.support:design:26.1.0'
     implementation 'com.squareup.okhttp3:okhttp:3.9.0'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+
 }

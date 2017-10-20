@@ -1,9 +1,11 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 apply plugin: 'com.novoda.bintray-release'
-android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.2"
 
+android {
+
+    compileSdkVersion library_version_compileSdkVersion as Integer
+    buildToolsVersion library_version_buildToolsVersion
 
     defaultConfig {
         minSdkVersion 14
@@ -29,12 +31,14 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }
 publish {
     userOrg = 'xabad'
     groupId = 'cn.xabad.maya'
     artifactId = 'extensions'
     publishVersion = '0.0.1'
-    desc = 'Oh hi, this is a nice description for a project, right?'
-    website = 'https://github.com/novoda/bintray-release'
+    desc = 'This is a kotlin language base library'
+    website = 'https://github.com/xabad/Maya'
 }

@@ -9,7 +9,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.0-rc1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
         classpath 'com.novoda:bintray-release:0.5.0'
     }
 }
@@ -19,6 +19,17 @@ allprojects {
         google()
         jcenter()
     }
+    tasks.withType(Javadoc) {
+                options{
+                    encoding "UTF-8"
+                    charSet 'UTF-8'
+                    links "http://docs.oracle.com/javase/7/docs/api"
+                }
+//        options.addStringOption('Xdoclint:none', '-quiet')
+//        options.addStringOption('encoding', 'UTF-8')
+    }
+    //这一步很关键，否则会卡在JavaDoc
+    tasks.getByPath(":extensions:releaseAndroidJavadocs").enabled = false
 }
 
 task clean(type: Delete) {
